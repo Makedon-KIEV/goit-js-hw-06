@@ -13,17 +13,38 @@ const images = [
   },
 ];
 
-const refs = {
-  galleryRef: document.querySelector('.gallery'),
-};
 
-const makeGalleryItem = ({ url, alt }) => {
-  const itemRef = document.createElement('li');
-  itemRef.insertAdjacentHTML('afterbegin', `<img class="gallery__img" src="${url}" alt="${alt}">`);
-  itemRef.classList.add('gallery__item');
-  return itemRef;
-};
+//const createGalleryItem = ({ url, alt }) =>
+  //`<li><img src="${url}" alt="${alt}" width = 200 height = 150></li>`;
+//const galleryMarkup = images.reduce(
+  //(acc, item) => acc + createGalleryItem(item),
+  //""
+//);
+//const galleryList = document.querySelector(".gallery");
+//galleryList.insertAdjacentHTML("afterbegin", galleryMarkup);
+//galleryList.setAttribute("style", "list-style-type:none; display: flex;");
 
-const gallery = images.map(makeGalleryItem);
 
-refs.galleryRef.append(...gallery);
+
+
+//for (let el of images) document.querySelector('.gallery').insertAdjacentHTML('beforeEnd', `<li><img src="${el.url}" alt="${el.alt}" width = 200 height = 150></li>`);
+
+const list = document.querySelector('.gallery');
+const createimg = images.map(image =>
+  `<li> <img
+src="${image.url}"
+//alt="${image.alt}"/>
+//</li>`).join("")
+list.insertAdjacentHTML('afterbegin', createimg)
+
+
+
+//let gallery = '';
+
+//images.map(({ url, alt }) => {
+ // gallery += `<li><img src="${url}" alt="${alt}" width="450px"></li>`;
+//});
+
+//const galleryElem = document.querySelector('.gallery');
+//galleryElem.classList.add('gallery--task-03');
+//galleryElem.insertAdjacentHTML('afterbegin', gallery);
